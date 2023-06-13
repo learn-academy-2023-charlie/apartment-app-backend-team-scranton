@@ -1,0 +1,2 @@
+class DoggyHotelsController < ApplicationController
+end

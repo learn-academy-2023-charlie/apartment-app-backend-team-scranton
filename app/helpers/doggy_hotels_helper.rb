@@ -1,0 +1,2 @@
+module DoggyHotelsHelper
+end
