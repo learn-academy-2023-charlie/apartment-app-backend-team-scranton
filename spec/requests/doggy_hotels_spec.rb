@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "DoggyHotels", type: :request do
+  # test user scoped locally to this document - doggy hotels must belong to a user
   let(:user) { User.create(
     email: 'test@example.com',
     password: 'password',
@@ -57,7 +58,7 @@ RSpec.describe "DoggyHotels", type: :request do
       expect(json['number_of_walks']).to eq 5
     end
 
-    #below statements each validate an attribute of doggy hotel for create functionality
+    #validate each attribute of doggy hotel for create functionality
     it 'is not valid without a dog_size_grouping' do
       doggy_hotel_params = {
         doggy_hotel: {
@@ -193,8 +194,11 @@ RSpec.describe "DoggyHotels", type: :request do
     end
   end
 
+  # validate updates
   describe "PATCH /update" do
     it 'updates a doggy hotel' do
+
+      # create a test case with the following params
       doggy_hotel_params = {
         doggy_hotel: {
           dog_size_grouping: 'small',
@@ -208,9 +212,11 @@ RSpec.describe "DoggyHotels", type: :request do
           user_id: user.id
         }
       }
+      # post the test case and assign it the variable doggy_hotel
       post '/doggy_hotels', params: doggy_hotel_params
       doggy_hotel = DoggyHotel.first
 
+      # define updated params
       updated_doggy_hotel_params = {
         doggy_hotel: {
           dog_size_grouping: 'medium',
@@ -219,8 +225,10 @@ RSpec.describe "DoggyHotels", type: :request do
         }
       }
 
+      # update test case of doggy_hotel with updated params, and reassign the test case to updated_doggy_hotel
       patch "/doggy_hotels/#{doggy_hotel.id}", params: updated_doggy_hotel_params
       updated_doggy_hotel = DoggyHotel.find(doggy_hotel.id)
+      # should have the correct updated params and a 200 status
       expect(response).to have_http_status(200)
       expect(updated_doggy_hotel.dog_size_grouping).to eq 'medium'
       expect(updated_doggy_hotel.square_footage).to eq 500
@@ -228,7 +236,10 @@ RSpec.describe "DoggyHotels", type: :request do
     end
   end
 
+
+  # validate delete functionality
   describe "DELETE /destroy" do
+    # create a test case, post it with these params (256) and assign it the variable doggy_hotel (257)
     it 'deletes a doggy hotel' do
       doggy_hotel_params = {
         doggy_hotel: {
@@ -246,7 +257,7 @@ RSpec.describe "DoggyHotels", type: :request do
       post '/doggy_hotels', params: doggy_hotel_params
       doggy_hotel = DoggyHotel.first
 
-      
+      # expect deleting this test case to reduce the amount of doggy hotels by one
       expect{delete "/doggy_hotels/#{doggy_hotel.id}"}.to change(DoggyHotel, :count).by(-1)
     end
   end
