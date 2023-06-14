@@ -219,12 +219,35 @@ RSpec.describe "DoggyHotels", type: :request do
         }
       }
 
-      patch "/doggy_hotels//#{doggy_hotel.id}", params: updated_doggy_hotel_params
+      patch "/doggy_hotels/#{doggy_hotel.id}", params: updated_doggy_hotel_params
       updated_doggy_hotel = DoggyHotel.find(doggy_hotel.id)
       expect(response).to have_http_status(200)
       expect(updated_doggy_hotel.dog_size_grouping).to eq 'medium'
       expect(updated_doggy_hotel.square_footage).to eq 500
       expect(updated_doggy_hotel.price).to eq '50'
+    end
+  end
+
+  describe "DELETE /destroy" do
+    it 'deletes a doggy hotel' do
+      doggy_hotel_params = {
+        doggy_hotel: {
+          dog_size_grouping: 'small',
+          kennel: '1',
+          city: 'here',
+          state: 'HE',
+          square_footage: 5,
+          price: '5',
+          number_of_walks: 5,
+          image: 'image.com',
+          user_id: user.id
+        }
+      }
+      post '/doggy_hotels', params: doggy_hotel_params
+      doggy_hotel = DoggyHotel.first
+
+      
+      expect{delete "/doggy_hotels/#{doggy_hotel.id}"}.to change(DoggyHotel, :count).by(-1)
     end
   end
 end

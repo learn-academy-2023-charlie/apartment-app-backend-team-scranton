@@ -22,6 +22,12 @@ class DoggyHotelsController < ApplicationController
             render json: doggy_hotel.errors, status: 422
         end
     end
+
+    def destroy
+        doggy_hotel = DoggyHotel.find(params[:id])
+        doggy_hotel.delete
+        redirect_to doggy_hotels_path
+    end
     
     private
     def doggy_hotel_params
