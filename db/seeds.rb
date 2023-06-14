@@ -6,7 +6,7 @@ user4 = User.where(email: "test2@example.com").first_or_create(password: "passwo
 pug_life = [
     {
         dog_size_grouping: "small"
-        kennel: 1
+        kennel: "1"
         city: "East Harlem"
         state: "NY"
         square_footage: "100"
@@ -20,7 +20,7 @@ pug_life = [
 barks_and_recreation = [
     {
         dog_size_grouping: "medium"
-        kennel: 2
+        kennel: "2"
         city: "Pawnee"
         state: "IN"
         square_footage: "200"
@@ -34,7 +34,7 @@ barks_and_recreation = [
 barking_bad = [
     {
         dog_size_grouping: "large"
-        kennel: 3
+        kennel: "3"
         city: "Albuquerque"
         state: "NM"
         square_footage: "300"
@@ -48,7 +48,7 @@ barking_bad = [
 barkingham_palace = [
     {
         dog_size_grouping: "any"
-        kennel: 4
+        kennel: "4"
         city: "London"
         state: "UK"
         square_footage: "828000"
