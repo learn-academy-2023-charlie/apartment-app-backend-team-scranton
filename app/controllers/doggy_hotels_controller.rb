@@ -12,6 +12,16 @@ class DoggyHotelsController < ApplicationController
             render json: doggy_hotel.errors, status: 422
         end
     end
+
+    def update
+        doggy_hotel = DoggyHotel.find(params[:id])
+        doggy_hotel.update(doggy_hotel_params)
+        if doggy_hotel.valid?
+            render json: doggy_hotel
+        else
+            render json: doggy_hotel.errors, status: 422
+        end
+    end
     
     private
     def doggy_hotel_params
