@@ -17,18 +17,22 @@ Doggy Hotels was largely created as a process of learning.
  - ActiveRecord
 
 ## Configuration
-```
+
+  ```
   $ git clone https://github.com/learn-academy-2023-charlie/apartment-app-frontend-team-scranton.git
   $ cd apartment-app-frontend-team-scranton
   $ yarn start
-  $ cd ..
+
+  -New terminal window
   $ git clone https://github.com/learn-academy-2023-charlie/apartment-app-backend-team-scranton.git
   $ cd apartment-app-backend-team-scranton
   $ rails s
   
   Open localhost:3000
   Open localhost:3001
-```
+  ```
 
 ## Reference
 + [LEARN syllabus, Apartment App project](https://github.com/learn-academy-2023-charlie/syllabus#unit-nine-react-and-rails-with-authentication)
+
+
