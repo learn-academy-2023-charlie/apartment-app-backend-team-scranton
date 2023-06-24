@@ -1,24 +1,34 @@
-# README
+# Doggy Hotels 
+![Static Badge](https://img.shields.io/badge/stack-ruby%20on%20rails-darkred) ![Static Badge](https://img.shields.io/badge/UI-react-steelblue) ![Static Badge](https://img.shields.io/badge/testing-rspec%2Fjs%20unit-darkgreen) ![Static Badge](https://img.shields.io/badge/db-activerecord-midnightblue)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Jessica Ricks, Ernesto Gonzalez, and Sarah Cherry created 'Doggy Hotels' as team Scranton during LEARN Academy's 4 month full stack software development bootcamp. The stack used for this is Ruby on Rails, RSpec testing, and React with JSX, using ActiveRecord for database management. This was our second independent full stack app, and has full CRUD functionality. 
 
-* Ruby version
+This repo contains the backend - Ruby on Rails with RSpec testing. Find the frontend repo [here](
+https://github.com/learn-academy-2023-charlie/apartment-app-frontend-team-scranton/blob/main/README.md)
 
-* System dependencies
+## Motivation
+Doggy Hotels was largely created as a process of learning.
 
-* Configuration
+## Requirements
+ - yarn
+ - React
+ - Ruby on rails
+ - ActiveRecord
 
-* Database creation
+## Configuration
+```
+  $ git clone https://github.com/learn-academy-2023-charlie/apartment-app-frontend-team-scranton.git
+  $ cd apartment-app-frontend-team-scranton
+  $ yarn start
+  $ cd ..
+  $ git clone https://github.com/learn-academy-2023-charlie/apartment-app-backend-team-scranton.git
+  $ cd apartment-app-backend-team-scranton
+  $ rails s
+  
+  Open localhost:3000
+  Open localhost:3001
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Reference
++ [LEARN syllabus, Apartment App project](https://github.com/learn-academy-2023-charlie/syllabus#unit-nine-react-and-rails-with-authentication)
